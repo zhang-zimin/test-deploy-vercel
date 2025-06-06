@@ -1,54 +1,64 @@
-# React + TypeScript + Vite
+# 佛祖展示项目
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个使用 React + TypeScript + Vite 构建的图片展示项目。
 
-Currently, two official plugins are available:
+## 项目启动说明
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 环境要求
+- Node.js 16.0 或更高版本
+- npm 7.0 或更高版本
 
-## Expanding the ESLint configuration
+### 安装步骤
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. 克隆项目后，首先安装依赖：
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. 安装必要的类型定义：
+```bash
+npm install @types/react @types/react-dom
 ```
+
+3. 启动开发服务器：
+```bash
+npm run dev
+```
+
+4. 构建生产版本：
+```bash
+npm run build
+```
+
+### 项目结构
+```
+src/
+  ├── component/
+  │   ├── BuddhaPage.tsx    # 展示组件
+  │   └── BuddhaPage.css    # 组件样式
+  ├── images/               # 图片资源目录
+  │   ├── 1.png
+  │   ├── 2.png
+  │   ├── 3.png
+  │   ├── 4.png
+  │   └── 5.png
+  └── App.tsx              # 主应用组件
+```
+
+### 功能说明
+- 佛祖图片展示
+- 点击图片查看大图
+- 响应式布局
+- 动画效果
+
+### 注意事项
+1. 确保 `public/images` 目录下存在所需的图片文件
+2. 图片命名需要与代码中的文件名对应
+3. 建议使用 PNG 格式的图片以获得最佳显示效果
+
+## 技术栈
+- React 18
+- TypeScript
+- Vite
+- CSS3
+

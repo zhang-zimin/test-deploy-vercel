@@ -1,22 +1,72 @@
+import React, { useState } from 'react';
 import "./BuddhaPage.css"
 
-const BuddhaPage = () => {
-    // 定义图片文件名数组
-    const imageFiles = ['1.png', '2.png', '3.png','4.png','5.png'];
-    console.log(import.meta.env.PUBLIC_URL)
+interface BuddhaImage {
+    id: number;
+    filename: string;
+    title: string;
+    description: string;
+}
+
+const BuddhaPage: React.FC = () => {
+    // 定义图片数据
+    const images: BuddhaImage[] = [
+        { id: 1, filename: '1.png', title: '佛祖一', description: '慈悲为怀' },
+        { id: 2, filename: '2.png', title: '佛祖二', description: '智慧如海' },
+        { id: 3, filename: '3.png', title: '佛祖三', description: '普度众生' },
+        { id: 4, filename: '4.png', title: '佛祖四', description: '大慈大悲' },
+        { id: 5, filename: '5.png', title: '佛祖五', description: '无量功德' },
+    ];
+
+    const [selectedImage, setSelectedImage] = useState<BuddhaImage | null>(null);
+
+    const handleImageClick = (image: BuddhaImage) => {
+        setSelectedImage(image);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+    };
+
     return (
-        <div className={"BuddhaPage"}>
-            <h1 >佛祖展示</h1>
-            <div className={"full-screen-grid"}>
-                {imageFiles.map((imageFile, index) => (
-                    <img
-                        key={index}
-                        src={`/images/${imageFile}`}
-                        alt={`佛祖图片 ${index + 1}`}
-                        className="w-3/4 md:w-1/2 lg:w-1/3 rounded-md shadow-lg my-4"
-                    />
+        <div className="buddha-page">
+            <h1 className="buddha-title">佛祖展示</h1>
+            <div className="buddha-grid">
+                {images.map((image) => (
+                    <div 
+                        key={image.id} 
+                        className="buddha-card"
+                        onClick={() => handleImageClick(image)}
+                    >
+                        <img
+                            src={`/images/${image.filename}`}
+                            alt={image.title}
+                            className="buddha-image"
+                        />
+                        <div className="buddha-info">
+                            <h3>{image.title}</h3>
+                            <p>{image.description}</p>
+                        </div>
+                    </div>
                 ))}
             </div>
+
+            {selectedImage && (
+                <div className="modal-overlay" onClick={handleCloseModal}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <button className="close-button" onClick={handleCloseModal}>×</button>
+                        <img
+                            src={`/images/${selectedImage.filename}`}
+                            alt={selectedImage.title}
+                            className="modal-image"
+                        />
+                        <div className="modal-info">
+                            <h2>{selectedImage.title}</h2>
+                            <p>{selectedImage.description}</p>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
