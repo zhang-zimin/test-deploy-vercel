@@ -55,13 +55,54 @@ h1 {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: #fafafa;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.title-decoration {
+    font-size: 2rem;
+    color: #8B4513;
+    margin: 0 1.5rem;
+    opacity: 0.8;
+    font-family: "楷体", KaiTi, serif;
 }
 
 .buddha-title {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 2rem;
+    margin: 0;
     font-size: 2.5rem;
+    font-family: "楷体", KaiTi, serif;
+    letter-spacing: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.buddha-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #8B4513, transparent);
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    font-family: "楷体", KaiTi, serif;
+    margin-bottom: 2rem;
+    font-style: italic;
 }
 
 .buddha-grid {
@@ -105,12 +146,26 @@ h1 {
     margin: 0 0 0.5rem 0;
     color: #2c3e50;
     font-size: 1.25rem;
+    font-family: "楷体", KaiTi, serif;
 }
 
-.buddha-info p {
-    margin: 0;
+.description {
+    margin: 0 0 1rem 0;
     color: #666;
     font-size: 1rem;
+    font-family: "宋体", SimSun, serif;
+}
+
+.scripture {
+    margin: 0;
+    color: #8B4513;
+    font-size: 0.9rem;
+    font-family: "楷体", KaiTi, serif;
+    font-style: italic;
+    line-height: 1.6;
+    padding: 0.5rem;
+    background: rgba(139, 69, 19, 0.05);
+    border-left: 3px solid #8B4513;
 }
 
 /* 模态框样式 */
@@ -154,6 +209,20 @@ h1 {
 .modal-info h2 {
     color: #2c3e50;
     margin-bottom: 0.5rem;
+    font-family: "楷体", KaiTi, serif;
+}
+
+.scripture-container {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 8px;
+}
+
+.scripture-container h3 {
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+    font-family: "楷体", KaiTi, serif;
 }
 
 .close-button {
